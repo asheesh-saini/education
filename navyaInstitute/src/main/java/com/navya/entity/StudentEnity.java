@@ -1,6 +1,8 @@
 package com.navya.entity;
 
-public class StudentEnity {
+import java.io.Serializable;
+
+public class StudentEnity implements Serializable {
 	private String id;
 	private String name;
 	private Address address;

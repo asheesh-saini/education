@@ -7,7 +7,9 @@ public class WebXmlInitializer extends AbstractAnnotationConfigDispatcherServlet
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Class[] {
+				RootAppConfig.class
+		};
 	}
 
 	@Override
