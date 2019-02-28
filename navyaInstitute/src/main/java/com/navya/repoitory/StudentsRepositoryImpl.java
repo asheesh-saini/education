@@ -54,5 +54,34 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 		  StudentEnity student = jdbcTemplate.queryForObject(sql, params, new StudentMapper());
 		return student;
 	}
+	@Override
+	public String addStudent(StudentEnity student) {
+		String sql = "INSERT INTO STUDENTS (ID,NAME,DOB,MOB,BATCHID) VALUES (:id,:name,:dob,:mob,:batchId)";
+		Map<String,Object> param = new HashMap();
+		param.put("id", student.getId());
+		param.put("dob", student.getDob());
+		param.put("batchId", student.getBatchId());
+		param.put("mob", student.getMob());
+		param.put("name", student.getName());
+		int result = jdbcTemplate.update(sql, param);
+		if(result == 0)
+			try {
+				throw new Exception("some problems");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return result+"";
+	}
+	@Override
+	public String deleteStudent(String id) {
+		// TODO Auto-generated method stub
+		String sql = "DELETE FROM STUDENTS WHERE ID=:id";
+		Map<String,Object> param = new HashMap();
+		param.put("id", id);
+		int result = jdbcTemplate.update(sql, param);
+		return result+"";
+	}
+	
 
 }

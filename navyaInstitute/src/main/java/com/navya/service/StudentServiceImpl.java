@@ -22,7 +22,16 @@ public class StudentServiceImpl implements StudentService {
 	public StudentEnity getStudent(String id) {
 		return studentRepository.getStudentById(id);
 	}
-	
 
+	@Override
+	public String addStudent(StudentEnity student) {
+		return studentRepository.addStudent(student);
+	}
+
+	@Override
+	public String deleteStudentById(String id) {
+		// TODO Auto-generated method stub
+		return studentRepository.deleteStudent(id);
+	}
 
 }
