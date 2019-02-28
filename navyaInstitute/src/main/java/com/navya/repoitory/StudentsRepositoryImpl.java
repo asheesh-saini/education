@@ -20,7 +20,7 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 	public List<StudentEnity> getAllStudent() {
 		// TODO Auto-generated method stub
 		Map<String,Object> params = new HashMap();
-		List<StudentEnity> studentList = jdbcTemplate.query("select * from students", new StudentMapper());
+		List<StudentEnity> studentList = jdbcTemplate.query("select * from students", params,new StudentMapper());
 		return studentList;
 	}
 	private final class StudentMapper implements RowMapper<StudentEnity>{
@@ -45,6 +45,14 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 			return student;
 		}
 		
+	}
+	@Override
+	public StudentEnity getStudentById(String id) {
+		String sql = "select * from students where id = :id";
+		Map<String,Object> params = new HashMap();
+		params.put("id", id);
+		  StudentEnity student = jdbcTemplate.queryForObject(sql, params, new StudentMapper());
+		return student;
 	}
 
 }

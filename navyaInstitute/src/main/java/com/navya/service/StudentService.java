@@ -6,4 +6,5 @@ import com.navya.entity.StudentEnity;
 
 public interface StudentService {
 	public List<StudentEnity> getStudents();
+	public StudentEnity getStudent(String id);
 }

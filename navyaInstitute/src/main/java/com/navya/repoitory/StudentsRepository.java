@@ -6,4 +6,5 @@ import com.navya.entity.StudentEnity;
 
 public interface StudentsRepository {
 	public List<StudentEnity> getAllStudent();
+	public StudentEnity getStudentById(String id);
 }

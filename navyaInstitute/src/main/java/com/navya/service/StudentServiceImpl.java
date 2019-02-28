@@ -18,4 +18,11 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.getAllStudent();
 	}
 
+	@Override
+	public StudentEnity getStudent(String id) {
+		return studentRepository.getStudentById(id);
+	}
+	
+
+
 }
