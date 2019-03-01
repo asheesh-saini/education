@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type"
@@ -18,42 +19,44 @@
 			<fieldset>
 				<legend>Add new student</legend>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="id">Student
-						Id</label>
+					<label class="control-label col-lg-2 col-lg-2" for="id"><spring:message
+							code="addStudent.form.studentId.label" /> </label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="id" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="name">Student Name</label>
+					<label class="control-label col-lg-2 col-lg-2" for="name">
+						<spring:message code="addStudent.form.stdentName.label" />
+					</label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="name" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="batchId">Batch id</label>
+					<label class="control-label col-lg-2 col-lg-2" for="batchId"><spring:message code="addStudent.form.batchId.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="batchId" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="dob">Date of Birth</label>
+					<label class="control-label col-lg-2 col-lg-2" for="dob"><spring:message code="addStudent.form.dob.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="dob" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="mob">Mobile No</label>
+					<label class="control-label col-lg-2 col-lg-2" for="mob"><spring:message code="addStudent.form.mob.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="mob" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
 						<input type="submit" id="btnAdd"
