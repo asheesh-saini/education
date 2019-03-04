@@ -36,27 +36,37 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="batchId"><spring:message code="addStudent.form.batchId.label" /></label>
+					<label class="control-label col-lg-2 col-lg-2" for="batchId"><spring:message
+							code="addStudent.form.batchId.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="batchId" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="dob"><spring:message code="addStudent.form.dob.label" /></label>
+					<label class="control-label col-lg-2 col-lg-2" for="dob"><spring:message
+							code="addStudent.form.dob.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="dob" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="mob"><spring:message code="addStudent.form.mob.label" /></label>
+					<label class="control-label col-lg-2 col-lg-2" for="mob"><spring:message
+							code="addStudent.form.mob.label" /></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="mob" type="text"
 							class="form:input-large" />
 					</div>
 				</div>
-
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="reference"><spring:message
+							code="addStudent.form.reference.label" /></label>
+					<div class="col-lg-10">
+						<form:input id="productId" path="reference" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
 						<input type="submit" id="btnAdd"

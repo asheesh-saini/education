@@ -9,6 +9,15 @@ public class StudentEnity implements Serializable {
 	private String mob;
 	private String dob;
 	private String batchId;
+	private String reference;
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
 
 	public String getId() {
 		return id;
