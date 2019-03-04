@@ -23,29 +23,37 @@ public class StudentController {
 		map.put("students", studenService.getStudents());
 		return "students";
 	}
+
 	@RequestMapping("/student")
-	public String studentById(@ModelAttribute("id") String id,Map map) {
+	public String studentById(@ModelAttribute("id") String id, Map map) {
 		id = "S1";
 		map.put("student", studenService.getStudent(id));
 		System.out.println(studenService.getStudent(id).getId());
 		return "student";
 	}
-	
-	@RequestMapping(value = "/student/add",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/student/add", method = RequestMethod.GET)
 	public String addStudent(Model model) {
 		model.addAttribute("newStudent", new StudentEnity());
 		return "newStudent";
 	}
-	@RequestMapping(value = "/student/add",method=RequestMethod.POST)
-	public String addStudent(@ModelAttribute("newStudent") StudentEnity newStudent,Map map) {
+
+	@RequestMapping(value = "/student/add", method = RequestMethod.POST)
+	public String addStudent(@ModelAttribute("newStudent") StudentEnity newStudent, Map map) {
 		map.put("result", studenService.addStudent(newStudent));
-		System.out.println("student id : "+newStudent.getId()); 
+		System.out.println("student id : " + newStudent.getId());
 		return "redirect:/students";
 	}
+
 	@RequestMapping("/student/delete")
-	public String removeStudent(@RequestParam("id") String id,Map map) {
-		//id = "S3";
+	public String removeStudent(@RequestParam("id") String id, Map map) {
+		// id = "S3";
 		map.put("result", studenService.deleteStudentById(id));
 		return "redirect:/students";
+	}
+
+	@RequestMapping("/home")
+	public String home() {
+		return "home";
 	}
 }
