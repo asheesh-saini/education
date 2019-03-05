@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div><a href="home">Back</a></div>
 	<table border="1">
 		<c:forEach var="student" items="${students}">
 			<tr>
