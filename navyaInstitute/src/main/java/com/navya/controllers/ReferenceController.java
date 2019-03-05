@@ -15,6 +15,6 @@ public class ReferenceController {
 	@RequestMapping(value = "/student/references")
 	public String reference() {
 		refService.getReferences();
-		return null;
+		return null; 
 	}
 }
