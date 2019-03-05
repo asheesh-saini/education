@@ -2,6 +2,8 @@ package com.navya.controllers;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,11 +47,17 @@ public class StudentController {
 		return "redirect:/students";
 	}
 
-	@RequestMapping("/student/delete")
-	public String removeStudent(@RequestParam("id") String id, Map map) {
-		// id = "S3";
+	@RequestMapping(value = "/student/delete", method = RequestMethod.POST)
+	public String removeStudent(Map map, HttpServletRequest req) {
+		String id = req.getParameter("id");
 		map.put("result", studenService.deleteStudentById(id));
 		return "redirect:/students";
+	}
+
+	@RequestMapping(value = "/student/delete", method = RequestMethod.GET)
+	public String removeStudent(Model model) {
+		model.addAttribute("newStudent", new StudentEnity());
+		return "removeStudent";
 	}
 
 	@RequestMapping("/home")
