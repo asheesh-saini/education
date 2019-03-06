@@ -75,7 +75,7 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 		String sql = "INSERT INTO STUDENTS (ID,NAME,DOB,MOB,BATCHID,REFERENCE) VALUES (:id,:name,:dob,:mob,:batchId,:reference)";
 		// check reference is is valid or not
 		flag = checkReferenceId(student.getReference());
-		System.out.println("flag as: " + flag);
+		//System.out.println("flag as: " + flag);
 		Map<String, Object> param = new HashMap();
 		param.put("id", student.getId());
 		param.put("dob", student.getDob());
@@ -86,7 +86,9 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 		if (flag == true) {
 			Thread t = new Thread(() -> {
 				// increase the reference count in reference table
-				checkReference(student.getReference());
+				String refId = student.getReference();
+			//	System.out.println("ref in repo" + refId);
+				checkReference(refId);
 				// updateReferenceInformation();
 			});
 			t.start();
@@ -116,18 +118,18 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 
 			e.printStackTrace();
 		}
-		
+		//System.out.println("dfsdfsd");
 		if (ref != null) {
 			count = ref.getCount() + 1;
 			param.put("count", count);
-			System.out.println("count :" + count);
-			System.out.println("reference : "+reference);
+		//	System.out.println("count :" + count);
+		//	System.out.println("reference : "+reference);
 			sql1 = "UPDATE REFERENCE SET COUNT = :count WHERE REFERENCEID = :reference ";
 			jdbcTemplate.update(sql1, param);
 			return;
 		}
 		// update the count to reference table...
-		param.put("count", count);
+		param.put("count", count+1);
 		sql1 = "INSERT INTO REFERENCE (REFERENCEID,COUNT) VALUES (:reference,:count)";
 		jdbcTemplate.update(sql1, param);
 	}
