@@ -13,7 +13,6 @@
 <title>Students</title>
 </head>
 <body>
-<div><a href="../home">Back</a></div>
 	<section class="container">
 		<form:form method="POST" class="form-horizontal">
 			<fieldset>

@@ -7,7 +7,7 @@
 <style>
 header{
 height:100px;
-width:1000%;
+width:100%;
 background-color:pink;
 }
 a{
@@ -98,7 +98,7 @@ body {
       <a href="student/delete">Delete Student</a>
     </div>
   </div> 
-  <a href="home">Reference</a>
+  <a href="students/references">Reference</a>
 </div>
 
 
