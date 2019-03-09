@@ -10,6 +10,7 @@
 <body>
 <div><a href="../home">Back</a></div>
 	<table border="1">
+	<div><a href="<c:url value="/logout" />">Logout</a></div>
 	<tr>
 				<td>Student Id</td>
 				<td>Name</td>

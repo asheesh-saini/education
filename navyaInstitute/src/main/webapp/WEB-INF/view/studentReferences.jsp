@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div><a href="../home">Back</a></div>
+	<div><a href="<c:url value="/logout" />">Logout</a></div>
 	<table border="1">
 	<tr>
 				<td>Reference ID</td>

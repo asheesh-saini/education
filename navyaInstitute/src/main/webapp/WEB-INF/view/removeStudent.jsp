@@ -13,6 +13,7 @@
 <title>Students</title>
 </head>
 <body>
+<div><a href="<c:url value="/logout" />">Logout</a></div>
 	<section class="container">
 		<form:form method="POST" class="form-horizontal">
 			<fieldset>

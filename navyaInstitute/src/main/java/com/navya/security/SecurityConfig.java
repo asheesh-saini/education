@@ -9,34 +9,28 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	 @Autowired
-	    PasswordEncoder passwordEncoder;
-	 
-	    @Override
-	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	        auth.inMemoryAuthentication()
-	        .passwordEncoder(passwordEncoder)
-	        .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
-	        .and()
-	        .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
-	    }
-	 
-	    @Bean
-	    public PasswordEncoder passwordEncoder() {
-	        return new BCryptPasswordEncoder();
-	    }
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication().passwordEncoder(passwordEncoder).withUser("user")
+				.password(passwordEncoder.encode("123456")).roles("USER").and().withUser("admin")
+				.password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		 http.authorizeRequests()
-	        .antMatchers("/home").permitAll()
-	        .antMatchers("/**/add").access("hasRole('ADMIN')")
-	        .antMatchers("/**/students/**").access("hasRole('USER')")
-	        .and().formLogin()
-	        .and().logout().logoutSuccessUrl("/login").permitAll()
-	        .and().csrf().disable();
+		http.authorizeRequests().antMatchers("/home").permitAll().antMatchers("/**/add").access("hasRole('ADMIN')")
+				.antMatchers("/**/students/**").access("hasRole('USER')").and().formLogin().and().logout()
+				.logoutSuccessUrl("/login").permitAll().and().csrf().disable().formLogin().loginPage("/login")
+				.defaultSuccessUrl("/home");
 	}
 }

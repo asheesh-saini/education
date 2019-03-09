@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div><a href="<c:url value="/logout" />">Logout</a></div>
 	<table border="1">
 		
 			<tr>
