@@ -14,6 +14,7 @@
 </head>
 <body>
 <div><a href="../home">Back</a></div>
+<div><a href="<c:url value="/logout" />">Logout</a></div>
 	<section class="container">
 		<form:form method="POST" modelAttribute="newStudent"
 			class="form-horizontal">
